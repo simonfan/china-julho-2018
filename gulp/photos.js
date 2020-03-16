@@ -29,9 +29,15 @@ module.exports = gulp => {
 						}
 					},
 					{
-						width: 1200,
+						width: 1400,
 						rename: {
-							suffix: '-1200w',
+							suffix: '-1400w',
+						}
+					},
+					{
+						width: 2000,
+						rename: {
+							suffix: '-2000w',
 						}
 					}
 				]
