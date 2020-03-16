@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<button id="pause-all-audio"></button>
+
+	{% macro audio(src) %}
+	<button class="audio-control">
+		<audio src="{{ src }}"></audio>
+	</button>
+	{% endmacro %}
+
+	{% macro figure(image, location, text, figureClasses) %}
+	<figure class="{{ figureClasses | default('horizontal') }}">
+		<div class="images">
+			<img
+				class="lazyload"
+				src="https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/fotos/{{ image }}-miniature.jpg"
+				data-srcset="
+					https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/fotos/{{ image }}-600w.jpg 600w,
+					https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/fotos/{{ image }}-1200w.jpg 1200w,
+					https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/fotos/{{ image }}.jpg"
+				data-zoom-src="https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/fotos/{{ image }}.jpg">
+		</div>
+		<figcaption>
+			<address>{{ location }}</address>
+			<div>
+				{{ text | safe }}
+			</div>
+		</figcaption>
+	</figure>
+	{% endmacro %}
+
+	{% macro figureMulti(images, location, text, figureClasses) %}
+	<figure class="multi {{ figureClasses | default('two-columns') }}">
+		<div class="images">
+			{% for image in images %}
+			<img
+				class="lazyload"
+				src="https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/fotos/{{ image }}-miniature.jpg"
+				data-srcset="https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/fotos/{{ image }}-1200.jpg 1200w,
+				https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/fotos/{{ image }}.jpg"
+				data-zoom-src="https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/fotos/{{ image }}.jpg">
+			{% endfor %}
+		</div>
+		<figcaption>
+			<address>{{ location }}</address>
+			<div>
+				{{ text | safe }}
+			</div>
+		</figcaption>
+	</figure>
+	{% endmacro %}
+
+	<main id="main">
+		{{
+			figure(
+				'IMG_20180702_170343',
+				'重庆 (Chóngqíng)',
+				'Casa de chá sob os trilhos do metrô',
+				'vertical'
+			)
+		}}
+
+		{{
+			figureMulti(
+				['IMG_20180702_171404','IMG_20180702_190813'],
+				'重庆 (Chóngqíng)',
+				'Construções'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180702_192607',
+				'重庆 (Chóngqíng)',
+				'Vista do rio Yangtze (长江)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180702_190532',
+				'重庆 (Chóngqíng)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180702_191318',
+				'重庆 (Chóngqíng)',
+				'Vista do rio Yangtze (长江)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180702_194519',
+				'重庆 (Chóngqíng)',
+				'Pessoas dançando em um distrito comercial ao final da tarde'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180702_195229',
+				'重庆 (Chóngqíng)',
+				'Comércio de rua. Venda de comidas fritas (esq.) e frutas (dir.)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180702_202110',
+				'重庆 (Chóngqíng)',
+				'Vista de prédios antigos da cidade'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+					'IMG_20180702_202412',
+				  'IMG_20180702_204419',
+				  'IMG_20180702_204445'
+				],
+				'重庆 (Chóngqíng)',
+				'Decoração de LED',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180702_204037',
+				'重庆 (Chóngqíng)',
+				'Uso da calçada como espaço de recreação noturna. As pessoas voltam do trabalho e levam as crianças para passear à noite.'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180702_212459',
+				'重庆 (Chóngqíng)',
+				'Centro comercial de luxo'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180702_214324',
+				'重庆 (Chóngqíng)',
+				'Vista noturna do rio. As construções têm uma escala impressionante.'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180703_112925',
+				'丰都鬼城 (Fēngdū Guǐ Chéng)',
+				'Portal de entrada'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+				  'IMG_20180703_123508',
+				  'IMG_20180703_123526',
+				  'IMG_20180703_140048'
+				],
+				'丰都鬼城 (Fēngdū Guǐ Chéng)',
+				'',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180703_131731',
+				'丰都鬼城 (Fēngdū Guǐ Chéng)'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+					'IMG_20180703_135905',
+					'IMG_20180703_135926',
+					'IMG_20180703_135948',
+					'IMG_20180703_140009'
+				],
+				'丰都鬼城 (Fēngdū Guǐ Chéng)',
+				'Murais'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+				  'IMG_20180703_155620',
+				  'IMG_20180703_155639'
+				],
+				'丰都 (Fēngdū)',
+				'Comida de rua'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180703_215025',
+				'重庆 (Chóngqíng)',
+				'Casa-barco'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180704_153625',
+				'重庆 (Chóngqíng)',
+				'Edifício barco'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180704_181129',
+				'重庆 (Chóngqíng)',
+				'Casa de chá' + audio('https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/audios/20180704-cha-chong-qing.ogg')
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180704_191022',
+				'重庆 (Chóngqíng)',
+				'Monumento aos soldados mortos na guerra contra o Japão'
+			)
+		}}
+
+		{{
+			figureMulti(
+				['IMG_20180704_191121', 'IMG_20180704_191133', 'IMG_20180704_191047'],
+				'重庆 (Chóngqíng)',
+				'',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180704_213851',
+				'重庆 (Chóngqíng)',
+				'Vista noturna do metrô'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180704_215733',
+				'重庆 (Chóngqíng)',
+				'Passagem subterrânea conectada ao metrô (noite)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180704_215756',
+				'重庆 (Chóngqíng)',
+				'Passagem subterrânea conectada ao metrô (noite)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_104321',
+				'重庆 (Chóngqíng)',
+				'Senhor_s dançando. Passagem subterrânea conectada ao metrô (dia)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_104342',
+				'重庆 (Chóngqíng)',
+				'Senhor_s dançando. Passagem subterrânea conectada ao metrô (dia)'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+					'IMG_20180705_122931',
+					'IMG_20180705_123107'
+				],
+				'重庆 (Chóngqíng) - Museu nacional das Três gargantas',
+				'Senso de nacionalismo / Propaganda / Museus como instrumento de construção da identaidade nacional'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+					'IMG_20180705_123144',
+					'IMG_20180705_123230',
+					'IMG_20180705_123247'
+				],
+				'重庆 (Chóngqíng) - Museu nacional das Três gargantas',
+				'Senso de nacionalismo / Propaganda / Museus como instrumento de construção da identaidade nacional',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_131239',
+				'重庆 (Chóngqíng) - Museu nacional das Três gargantas',
+				'Mapa de Chóngqíng antiga'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_132117',
+				'重庆 (Chóngqíng) - Museu nacional das Três gargantas',
+				'Foto dos comunistas chegando à cidade vitoriosos',
+				'vertical'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_133157',
+				'重庆 (Chóngqíng) - Museu nacional das Três gargantas',
+				'A cidade antiga'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_135423',
+				'重庆 (Chóngqíng) - Museu nacional das Três gargantas',
+				'',
+				'vertical'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_135927',
+				'重庆 (Chóngqíng) - Museu nacional das Três gargantas',
+				''
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_155333',
+				'重庆 (Chóngqíng)',
+				'Mesa na rua, gente jogando cartas, fumando ou assistindo'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_163507',
+				'重庆 (Chóngqíng)',
+				'Vista do alto'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_164437',
+				'重庆 (Chóngqíng)',
+				'Vista do alto'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+
+				  'IMG_20180705_163952',
+				  'IMG_20180705_164456',
+				  'IMG_20180705_173658'
+				],
+				'重庆 (Chóngqíng)',
+				'Vista do alto',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_174519',
+				'重庆 (Chóngqíng)',
+				'Taichi, música ao fundo' + audio('https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/audios/20180705-pipa-shan-going-down-music.ogg')
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_173821',
+				'重庆 (Chóngqíng)',
+				'Badminton'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_175805',
+				'重庆 (Chóngqíng)',
+				'Espaço público'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_181452',
+				'重庆 (Chóngqíng)',
+				'Vista de prédios antigos, descendo ladeira'
+			)
+		}}
+
+		{{
+			figureMulti(
+				['IMG_20180705_182245', 'IMG_20180705_182313', 'IMG_20180705_182320'],
+				'重庆 (Chóngqíng)',
+				'Vista de saída em andar intermediário do prédio conectado à rua através de uma mini passarela',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180705_183056',
+				'重庆 (Chóngqíng)'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+				  'IMG_20180705_184407',
+					'IMG_20180705_184411',
+					'IMG_20180705_184412'
+				],
+				'重庆 (Chóngqíng)',
+				'Feira de rua, final da tarde',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180706_122132',
+				'重庆 (Chóngqíng)',
+				'Casa de chá antiga'
+			)
+		}}
+
+		{{
+			figureMulti(
+				['IMG_20180706_114148', 'IMG_20180706_130839', 'IMG_20180706_130911'],
+				'重庆 (Chóngqíng)',
+				'Estante de copos de clientes frequentes',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180706_131858',
+				'重庆 (Chóngqíng)',
+				'Casa de chá antiga'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180706_203141',
+				'重庆 (Chóngqíng) - Praça na frente do museu das Três gargantas',
+				'Pessoas dançando à noite' + audio('https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/audios/20180706-praca-danca-short.ogg')
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180706_204248',
+				'重庆 (Chóngqíng) - Praça na frente do museu das Três gargantas',
+				'Pessoas dançando à noite'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180706_202908',
+				'重庆 (Chóngqíng) - Praça na frente do museu das Três gargantas'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180706_203318',
+				'重庆 (Chóngqíng) - Praça na frente do museu das Três gargantas',
+				'Pessoas dançando à noite'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180707_073020',
+				'重庆 (Chóngqíng)',
+				'Estação de trem'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180707_134017',
+				'贵阳 (Guìyáng)',
+				'Prédios residenciais'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180707_175048',
+				'贵阳 (Guìyáng)',
+				'Comércio de rua - Macarrão fresco' + audio('https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/audios/20180710-repeat.ogg')
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180707_175120',
+				'贵阳 (Guìyáng)',
+				'Comércio de rua - Tenda de carnes'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180708_201211',
+				'贵阳 (Guìyáng)',
+				'Praça à noite'
+			)
+		}}
+
+
+		{{
+			figureMulti(
+				[
+					'IMG_20180708_201743',
+					'IMG_20180708_201155'
+				],
+
+				'贵阳 (Guìyáng)',
+				'Praça à noite com jogos de argola',
+				'fixed-height'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180708_203416',
+				'贵阳 (Guìyáng)',
+				'Restaurante'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180708_205230',
+				'贵阳 (Guìyáng)',
+				'Fachada'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180707_221258',
+				'贵阳 (Guìyáng)',
+				'Cabine de Karaokê'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+				  'IMG_20180708_211113',
+				  'IMG_20180708_211133',
+					'IMG_20180708_211444'
+				],
+				'贵阳 (Guìyáng)',
+				'Crianças brincando na rua à noite',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180708_233916',
+				'贵阳 (Guìyáng)',
+				'Vista de prédio - pessoas jogam cartas no apartamento vizinho'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180709_174202',
+				'西江苗族 (Xījiāng Miáozú)',
+				'Vilarejo da etnia Miao'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180709_230256',
+				'西江苗族 (Xījiāng Miáozú)',
+				'Noite'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180710_070243',
+				'西江苗族 (Xījiāng Miáozú)',
+				'Nascer do sol'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+  				'IMG_20180710_162156',
+				  'IMG_20180710_162207'
+				],
+				'小七孔 (Xiǎo qī kǒng)',
+				'Paisagem clássica chinesa' + audio('https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/audios/20180708-huangguoshu-speaking.ogg')
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180710_200413',
+				'荔波县 (Lìbō Xiàn)',
+				'Rua com restaurantes e muitos pedestres'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180710_200458',
+				'荔波县 (Lìbō Xiàn)',
+				'Restaurante, mesas na rua, banquinhos de plástico'
+			)
+		}}
+
+		{{
+			figureMulti(
+				['IMG_20180710_212315','IMG_20180710_212323']
+				,
+				'荔波县 (Lìbō Xiàn)',
+				'Caixa de som para dança na praça',
+				'fixed-height'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180710_213129',
+				'荔波县 (Lìbō Xiàn)',
+				'Soundsystem'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+					'IMG_20180711_105607',
+					'IMG_20180711_131357'
+				],
+				'Trem 荔波县 (Lìbō Xiàn) - 贵阳 (Guìyáng)',
+				'Jogando cartas no trem, pessoas ao redor olhando (esq.) e Mãe com crianças (dir.)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180712_124014',
+				'桂林 (Guìlín)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180712_155750',
+				'阳朔县 (Yángshuò Xiàn)',
+				'Mercado central da cidade. Pouca movimentação à tarde, comerciantes dormindo. Calor.'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180712_155949',
+				'阳朔县 (Yángshuò Xiàn)',
+				'Mercado central. Lojas de temperos (e coisas diversas).'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180712_160310',
+				'阳朔县 (Yángshuò Xiàn)',
+				'Mercado central. Loja de animais para comer - frangos, coelhos, patos'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180713_164847',
+				'阳朔县 (Yángshuò Xiàn)'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+					'IMG_20180712_161348',
+					'IMG_20180712_161355'
+				],
+				'阳朔县 (Yángshuò Xiàn)',
+				'Final da tarde. Vista para a torre de TV.'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180712_164940',
+				'阳朔县 (Yángshuò Xiàn)',
+				'Vista do topo da torre de TV.' + audio('https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/audios/20180712-dian-shi-ta.ogg')
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180712_164945',
+				'阳朔县 (Yángshuò Xiàn)',
+				'Vista do topo da torre de TV.'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+				  'IMG_20180712_165753',
+				  'IMG_20180712_165837'
+				],
+				'阳朔县 (Yángshuò Xiàn)',
+				'Vista do topo da torre de TV'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+					'IMG_20180712_175211',
+				  'IMG_20180712_185725'
+				],
+				'阳朔县 (Yángshuò Xiàn)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180712_185850',
+				'阳朔县 (Yángshuò Xiàn)',
+				'Vista para o rio'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180712_185903',
+				'阳朔县 (Yángshuò Xiàn)',
+				'Vista para o rio'
+			)
+		}}
+
+		{{
+			figureMulti(
+				['IMG_20180712_224423','IMG_20180712_224431'],
+				'阳朔县 (Yángshuò Xiàn)',
+				'Noite. Cantora de rua com soundsystem e tablet-videokê.'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+				  'IMG_20180712_233853',
+				  'IMG_20180712_233854',
+				  'IMG_20180712_233855'
+				],
+				'阳朔县 (Yángshuò Xiàn)',
+				'Festa',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180713_111610',
+				'阳朔 (Yángshuò Xiàn) - 遇龙河 (Yùlóng Hé)',
+				audio('https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/audios/20180713-yulongpiaoliu.ogg')
+			)
+		}}
+
+
+		{{
+			figure(
+				'IMG_20180713_111716',
+				'阳朔 (Yángshuò Xiàn) - 遇龙河 (Yùlóng Hé)'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+				  'IMG_20180713_111616',
+				  'IMG_20180713_130813'
+				],
+				'阳朔 (Yángshuò Xiàn)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180713_111916',
+				'阳朔 (Yángshuò Xiàn)',
+				''
+			)
+		}}
+
+		{{
+			figureMulti(
+				['IMG_20180713_120908','IMG_20180713_120913'],
+				'阳朔县 (Yángshuò Xiàn)',
+				'Senhora vendedora de água no topo de uma montanha (30 min de subida). Vem todos os dias.'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180713_152846',
+				'阳朔县 (Yángshuò Xiàn) - 遇龙河 (Yùlóng Hé)',
+				'Barragem construída para tornar o fluxo de água calmo' + audio('https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/audios/20180710-libo.ogg')
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180713_164928',
+				'阳朔县 (Yángshuò Xiàn)',
+				'Mercado central. Descansando com o celular.'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180713_164938',
+				'阳朔县 (Yángshuò Xiàn)',
+				'Mercado central. Comércio de carnes.'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+				  'IMG_20180713_164553',
+				  'IMG_20180713_164747',
+				  'IMG_20180713_164804'
+				],'阳朔县 (Yángshuò Xiàn)', 'Mercado central','three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180713_215114',
+				'阳朔县 (Yángshuò Xiàn) - 漓江 (Lí Jiāng)',
+				'Espetáculo de luzes sobre o rio Li. Teatro ao ar livre. Apresentação é feita por barqueiros sobre a água.'
+			)
+		}}
+
+		{{
+			figureMulti(
+				['IMG_20180713_222928','IMG_20180713_223315'],
+				'阳朔县 (Yángshuò Xiàn) - 漓江 (Lí Jiāng)',
+				'Espetáculo de luzes sobre o rio Li'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180713_220250',
+				'阳朔县 (Yángshuò Xiàn) - 漓江 (Lí Jiāng)',
+				'Espetáculo de luzes sobre o rio Li'
+			)
+		}}
+
+	  {{
+	  	figure(
+	  		'IMG_20180713_222421',
+				'阳朔县 (Yángshuò Xiàn) - 漓江 (Lí Jiāng)',
+				'Espetáculo de luzes sobre o rio Li'
+			)
+	  }}
+
+
+		{{
+			figure(
+				'IMG_20180714_105601',
+				'阳朔县 (Yángshuò Xiàn)',
+				'Vista do rio Li no centro da cidade.'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180714_124235',
+				'阳朔县 (Yángshuò Xiàn)',
+				'Parque da cidade. Campo de Lótus.'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+					'IMG_20180714_190102',
+				  'IMG_20180714_190142',
+				  'IMG_20180714_190553'
+				],
+				'龙胜梯田 (Lóngshèng Tītián)',
+				'Criança andando de skate à beira do precipício.',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180715_055614',
+				'龙胜梯田 (Lóngshèng Tītián)',
+				'Nascer do sol encoberto.' + audio('https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/audios/20180713-yueliang-shan-cigarras.ogg')
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180715_062154',
+				'龙胜梯田 (Lóngshèng Tītián)',
+				'Senhora local. Cozinheira, vende refeições da manhã. O cabelo está enrolado dentro do tecido na cabeça, quando desenrolado chega até os pés.',
+				'vertical'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180715_114259',
+				'龙胜梯田 (Lóngshèng Tītián)',
+				'Vendedoras, guias, cozinheiras. Aguardam na estação de ônibus a chegada de turistas.'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180715_122626',
+				'龙胜梯田 (Lóngshèng Tītián)',
+				'Recepcionando um turista.',
+				'vertical'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180715_135719',
+				'龙胜梯田 (Lóngshèng Tītián)',
+				'Tarde'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+					'IMG_20180715_142611',
+					'IMG_20180715_152605',
+					'IMG_20180715_154517_1'
+				],
+				'龙胜梯田 (Lóngshèng Tītián)',
+				'Vendedoras de tecidos e coisas diversas.',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180715_194833',
+				'桂林 (Guìlín)',
+				'Criança brinca no rio à noite.'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180715_195640',
+				'桂林 (Guìlín)',
+				'Beira do rio, sob viaduto'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180715_195807',
+				'桂林 (Guìlín)',
+				'Pessoas pescando no rio (Domingo à noite)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180716_183243',
+				'成都 (Chéngdu)',
+				'Metrô. Publicidade valorizando as carreiras dos funcionários do metrô.'
+			)
+		}}
+
+		{{
+			figureMulti([
+			  'IMG_20180716_183118',
+			  'IMG_20180716_183133',
+			  'IMG_20180716_183141',
+			  'IMG_20180716_183209'
+			])
+		}}
+
+		{{
+			figureMulti(
+				['IMG_20180716_190440','IMG_20180716_190932','IMG_20180716_190955'],
+				'成都 (Chéngdu) - Casa',
+				'Avós preparando prato simples de arroz frito com ovos - 炒饭 (Chǎofàn)',
+				'three-columns'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180717_094743',
+				'',
+				'Família. Casa no campo.'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180718_171601',
+				'Fotos antigas',
+				'Família. Celebração.'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180717_151448',
+				'成都 (Chéngdu) - Museu',
+				'Monstro. Figura de teatro de sombras talhada em couro.'
+			)
+		}}
+
+		{{
+			figureMulti(
+				[
+					'IMG_20180717_151516',
+					'IMG_20180717_151525',
+					'IMG_20180717_152051',
+					'IMG_20180717_152100'
+				],
+				'成都 (Chéngdu) - Museu',
+				''
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180717_152110',
+				'成都 (Chéngdu) - Museu',
+				''
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180717_200251',
+				'成都 (Chéngdu)',
+				'Público se acomoda para assistir à apresentação de ópera tradicional de Sichuan - 川劇 (Chuānjù)'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180717_202135',
+				'成都 (Chéngdu)',
+				'Apresentação de 川劇 (Chuānjù)' + audio('https://simonfan-public.s3.sa-east-1.amazonaws.com/china-julho-2018/audios/20180717_201551-chuanju.ogg')
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180718_095530',
+				'成都 (Chéngdu)',
+				'Casa de chá. Mesa com senhores tomando chá pela manhã. O chá se toma cedo na manhã para poder voltar e almoçar em casa.'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180718_095636',
+				'成都 (Chéngdu)',
+				'Casa de chá. Imagem de Mao ao fundo.'
+			)
+		}}
+
+		{{
+			figure(
+				'mmexport1531922987496',
+				'成都 (Chéngdu)',
+				'Casa de chá'
+			)
+		}}
+
+		{{
+			figure(
+				'mmexport1531923011706',
+				'成都 (Chéngdu)',
+				'Casa de chá'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180718_100840',
+				'成都 (Chéngdu)',
+				'Restaurante de rua'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180718_110032',
+				'成都 (Chéngdu)',
+				'Ferreiro'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180720_123249',
+				'成都 (Chéngdu)',
+				'Casa de chá ao ar livre ao lado de um monastério'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180720_151757',
+				'成都 (Chéngdu)',
+				'Loja de chás e artigos para chá. O comerciante sempre convida os clientes para sentar e tomar chá.'
+			)
+		}}
+
+		{{
+			figureMulti(
+				['IMG_20180717_093336','IMG_20180717_093224'],
+				'Brasília - Fotos antigas',
+				'Chegando ao Brasil',
+				'fixed-height'
+			)
+		}}
+
+		{{
+			figure(
+				'IMG_20180717_093301',
+				'Brasil - Fotos antigas',
+				'Festa louca'
+			)
+		}}
+
+	</main>
+
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
